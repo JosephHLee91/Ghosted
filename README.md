@@ -4,40 +4,64 @@
 
 ##### Our team will create:
 
-A job board site that allows employers and prospective employees to add, and search for job listings (full CRUD capabilities)
+A job application management site that allows users to register, add their applied jobs to a table, and view/update the status of their aggregated applications.
 
-This will include the following features:
+This will include the following features and users will be able to:
 
-- User registration
+- Register for site
 
-  - Employer role
-  - "Job hunter" role
+- Job application table CRUD Capabilities
 
-- Job Posting (full CRUD Capabilities)
-  - Employer role: Create/Edit/Delete job posting (jobs table)
-  - "Job hunter" role:
-    - Read access
-    - Save/"Apply" for a job (adds job to User-Applied-Jobs table)
+  - Add applied job to users table/database
+  - Edit, and delete job from table/database
+  - Update job status (applied, interviewing, ghosted, declined, accepted) <--- dropdown on table
 
-Site users will be able to....
+- View charts for:
 
-- Register for site as an employer or employee
-- Add, edit, or delete job postings (Employee role)
-- "Apply" for job postings ("Job Hunter" role)
-  - Employees will be able to view the jobs they applied for/saved
+  - Job metrics: Job Status
+  - Location: remote/onsite/hybrid
 
-Learning goals....
+- Upload and save resume to account
+
+- Aggregate of interview resources
+
+- Contact/Job Experience Satisfaction form
+
+Components:
+
+- Public Components:
+
+  - Home page
+    - Maybe some charting for sign up incentive
+  - About page
+  - Registration
+  - Log in
+
+- User Signed Up Components:
+
+  - Add Job
+  - All user job listings
+  - Contact/Satisfaction Form
+
+Learning goals...
 
 - TypeScript
-- Hosting
 - Tailwind
+- react-chart.js (x amount of responses, etc)
 
 - Tables:
 
-  - Jobs
   - User-Applied-Jobs
-  - Employees
-  - Employers
+    - Skills
+    - Status
+    - Location: remote/onsite/hybrid
+  - Users
+    - Resume
+  - User satisfaction survey info
+  - Job resources table (with form)
+  - Contact
 
 - Stretch goals:
+
   - Comments on job posting
+  - Hosting
