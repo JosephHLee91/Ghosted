@@ -6,7 +6,7 @@
 
 A job application management site that allows users to register, add their applied jobs to a table, and view/update the status of their aggregated applications.
 
-This will include the following features and users will be able to:
+##### This will include the following features and users will be able to:
 
 - Register for site
 
@@ -21,11 +21,13 @@ This will include the following features and users will be able to:
   - Job metrics: Job Status
   - Location: remote/onsite/hybrid
 
-- Upload and save resume to account
+- Upload and save resume to account/Add resume used for job application
 
 - Aggregate of interview resources
 
 - Contact/Job Experience Satisfaction form
+
+---
 
 Components:
 
@@ -57,6 +59,8 @@ Learning goals...
     - Location: remote/onsite/hybrid
   - Users
     - Resume
+    - First Name
+    - Last Name
   - User satisfaction survey info
   - Job resources table (with form)
   - Contact
