@@ -35,11 +35,10 @@ public class SecurityConfig {
                 .antMatchers("/create_account").permitAll()
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-                // must be registered user or admin to post/put
+                // must be registered user or admin to post/put/delet
                 .antMatchers(HttpMethod.POST, "/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("USER", "ADMIN")
-                // must be admin to delete
-                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("USER","ADMIN")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()

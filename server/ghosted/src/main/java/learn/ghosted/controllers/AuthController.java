@@ -37,7 +37,7 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> authenticate(@RequestBody Map<String, String> credentials) {
 
         UsernamePasswordAuthenticationToken authToken =
-                new UsernamePasswordAuthenticationToken(credentials.get("username"), credentials.get("password"));
+                new UsernamePasswordAuthenticationToken(credentials.get("email"), credentials.get("password"));
 
         try {
             Authentication authentication = authenticationManager.authenticate(authToken);
@@ -72,7 +72,7 @@ public class AuthController {
     @PostMapping("/create_account")
     public ResponseEntity<?> createAccount(@RequestBody Map<String, String> credentials) {
 
-        String username = credentials.get("username");
+        String username = credentials.get("email");
         String password = credentials.get("password");
 
         Result<AppUser> result = appUserService.create(username, password);

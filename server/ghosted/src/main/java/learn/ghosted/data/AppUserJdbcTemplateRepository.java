@@ -18,27 +18,26 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-
     public AppUserJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
     @Transactional
-    public AppUser findByUsername(String username) {
-        List<String> roles = getRolesByUsername(username);
+    public AppUser findByUsername(String email) {
+        List<String> roles = getRolesByUsername(email);
 
-        final String sql = "select app_user_id, username, password_hash, enabled "
+        final String sql = "select app_user_id, email, password_hash, enabled "
                 + "from app_user "
-                + "where username = ?;";
+                + "where email = ?;";
 
-        return jdbcTemplate.query(sql, new AppUserMapper(roles), username)
+        return jdbcTemplate.query(sql, new AppUserMapper(roles), email)
                 .stream()
                 .findFirst().orElse(null);
     }
     @Override
     @Transactional
     public AppUser create(AppUser user) {
-        final String sql = "insert into app_user (username, password_hash) values (?, ?);";
+        final String sql = "insert into app_user (email, password_hash) values (?, ?);";
 
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
@@ -63,7 +62,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Transactional
     public void update(AppUser user) {
         final String sql = "update app_user set "
-                + "username = ?, "
+                + "email = ?, "
                 + "enabled = ? "
                 + "where app_user_id = ?";
 
@@ -90,12 +89,12 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         }
     }
 
-    private List<String> getRolesByUsername(String username) {
+    private List<String> getRolesByUsername(String email) {
         final String sql = "select r.name "
                 + "from app_user_role ur "
                 + "inner join app_role r on ur.app_role_id = r.app_role_id "
                 + "inner join app_user au on ur.app_user_id = au.app_user_id "
-                + "where au.username = ?";
-        return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), username);
+                + "where au.email = ?";
+        return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), email);
     }
 }

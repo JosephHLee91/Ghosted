@@ -46,7 +46,7 @@ public class AppUserService implements UserDetailsService {
             appUser = repository.create(appUser);
             result.setPayload(appUser);
         } catch (DuplicateKeyException e) {
-            result.addMessage("The provided username already exists", ResultType.INVALID);
+            result.addMessage("The provided email already exists", ResultType.INVALID);
         }
 
         return result;
@@ -55,7 +55,7 @@ public class AppUserService implements UserDetailsService {
     private Result<AppUser> validate(String username, String password) {
         Result<AppUser> result = new Result<>();
         if (username == null || username.isBlank()) {
-            result.addMessage("username is required", ResultType.INVALID);
+            result.addMessage("email is required", ResultType.INVALID);
             return result;
         }
 
@@ -65,7 +65,7 @@ public class AppUserService implements UserDetailsService {
         }
 
         if (username.length() > 50) {
-            result.addMessage("username must be less than 50 characters", ResultType.INVALID);
+            result.addMessage("email must be less than 50 characters", ResultType.INVALID);
         }
 
         if (!isValidPassword(password)) {
