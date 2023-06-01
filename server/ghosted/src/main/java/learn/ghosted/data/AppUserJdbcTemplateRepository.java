@@ -26,8 +26,8 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     public AppUser findByUsername(String email) {
         List<String> roles = getRolesByUsername(email);
 
-        final String sql = "select app_user_id, email, password_hash, enabled "
-                + "from app_user "
+        final String sql = "select user_id, first_name, last_name, email, password_hash, enabled "
+                + "from user "
                 + "where email = ?;";
 
         return jdbcTemplate.query(sql, new AppUserMapper(roles), email)
@@ -37,13 +37,15 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     @Transactional
     public AppUser create(AppUser user) {
-        final String sql = "insert into app_user (email, password_hash) values (?, ?);";
+        final String sql = "insert into user (first_name, last_name, email, password_hash) values (?, ?, ?, ?);";
 
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setString(3, user.getUsername());
+            ps.setString(4, user.getPassword());
             return ps;
         }, keyHolder);
 
@@ -61,10 +63,10 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     @Transactional
     public void update(AppUser user) {
-        final String sql = "update app_user set "
+        final String sql = "update user set "
                 + "email = ?, "
                 + "enabled = ? "
-                + "where app_user_id = ?";
+                + "where user_id = ?";
 
         jdbcTemplate.update(sql,
                 user.getUsername(), user.isEnabled(), user.getAppUserId());
@@ -74,7 +76,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     private void updateRoles(AppUser user) {
         // delete all roles, then re-add
-        jdbcTemplate.update("delete from app_user_role where app_user_id = ?;", user.getAppUserId());
+        jdbcTemplate.update("delete from user_role where user_id = ?;", user.getAppUserId());
 
         Collection<GrantedAuthority> authorities = user.getAuthorities();
 
@@ -83,17 +85,17 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         }
 
         for (GrantedAuthority role : authorities) {
-            String sql = "insert into app_user_role (app_user_id, app_role_id) "
-                    + "select ?, app_role_id from app_role where `name` = ?;";
+            String sql = "insert into user_role (user_id, role_id) "
+                    + "select ?, role_id from role where `name` = ?;";
             jdbcTemplate.update(sql, user.getAppUserId(), role.getAuthority());
         }
     }
 
     private List<String> getRolesByUsername(String email) {
         final String sql = "select r.name "
-                + "from app_user_role ur "
-                + "inner join app_role r on ur.app_role_id = r.app_role_id "
-                + "inner join app_user au on ur.app_user_id = au.app_user_id "
+                + "from user_role ur "
+                + "inner join role r on ur.role_id = r.role_id "
+                + "inner join user au on ur.user_id = au.user_id "
                 + "where au.email = ?";
         return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), email);
     }
