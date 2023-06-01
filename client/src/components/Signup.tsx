@@ -9,6 +9,7 @@ const Signup = () => {
     password: '',
     passwordConfirm: '',
   });
+
   const [errors, setErrors] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ const Signup = () => {
           state: { message: 'Account successfully created!', user },
         });
       })
-      .catch(() => {
+      .catch((err) => {
         setErrors(true);
       });
   };

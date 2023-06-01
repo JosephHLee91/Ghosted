@@ -4,9 +4,9 @@ import AuthContext from '../contexts/AuthContext';
 import { authenticate } from '../services/auth.ts';
 
 const Login = () => {
-  const [user, setUser] = useState({ email: '', password: '' });
+  const [user, setUser] = useState({ username: '', password: '' });
   const [errors, setErrors] = useState(false);
-  const login = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,7 +22,7 @@ const Login = () => {
         login(userLogin);
         navigate('/');
       })
-      .catch(() => {
+      .catch((err) => {
         setErrors(true);
       });
   };
@@ -32,7 +32,7 @@ const Login = () => {
     if (location.state?.user) {
       setUser(location.state.user);
     } else {
-      setUser({ email: '', password: '' });
+      setUser({ username: '', password: '' });
     }
   }, [location.state]);
 
@@ -50,14 +50,14 @@ const Login = () => {
           <div className='w-full px-3'>
             <label
               className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-              htmlFor='emailInput'
+              htmlFor='usernameInput'
             >
               Email
             </label>
             <input
               type='email'
-              id='emailInput'
-              name='email'
+              id='usernameInput'
+              name='username'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
             />
