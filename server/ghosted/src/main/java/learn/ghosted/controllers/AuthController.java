@@ -37,7 +37,7 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> authenticate(@RequestBody Map<String, String> credentials) {
 
         UsernamePasswordAuthenticationToken authToken =
-                new UsernamePasswordAuthenticationToken(credentials.get("email"), credentials.get("password"));
+                new UsernamePasswordAuthenticationToken(credentials.get("username"), credentials.get("password"));
 
         try {
             Authentication authentication = authenticationManager.authenticate(authToken);
@@ -63,6 +63,8 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser appUser) {
         String jwtToken = converter.getTokenFromUser(appUser);
 
+        System.out.println("Check here -----asdoaishbdlaksdbalksdbalskbd");
+
         HashMap<String, String> map = new HashMap<>();
         map.put("jwt_token", jwtToken);
 
@@ -72,10 +74,12 @@ public class AuthController {
     @PostMapping("/create_account")
     public ResponseEntity<?> createAccount(@RequestBody Map<String, String> credentials) {
 
+        String firstName = credentials.get("firstName");
+        String lastName = credentials.get("lastName");
         String username = credentials.get("email");
         String password = credentials.get("password");
 
-        Result<AppUser> result = appUserService.create(username, password);
+        Result<AppUser> result = appUserService.create(firstName, lastName, username, password);
 
         // unhappy path...
         if (!result.isSuccess()) {
