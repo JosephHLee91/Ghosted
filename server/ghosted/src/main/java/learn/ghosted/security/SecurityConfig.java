@@ -34,8 +34,8 @@ public class SecurityConfig {
                 // anyone can get
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers("/create_account").permitAll()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
                 .antMatchers("/refresh_token").authenticated()
+                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
                 // must be registered user or admin to post/put/delete
                 .antMatchers(HttpMethod.POST, "/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("USER", "ADMIN")
