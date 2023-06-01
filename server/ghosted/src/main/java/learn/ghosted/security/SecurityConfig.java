@@ -18,6 +18,7 @@ public class SecurityConfig {
         this.converter = converter;
     }
 
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationConfiguration authConfig) throws Exception {
         // we're not using HTML forms in our app
         //so disable CSRF (Cross Site Request Forgery)
@@ -33,9 +34,9 @@ public class SecurityConfig {
                 // anyone can get
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers("/create_account").permitAll()
-                .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-                // must be registered user or admin to post/put/delet
+                .antMatchers("/refresh_token").authenticated()
+                // must be registered user or admin to post/put/delete
                 .antMatchers(HttpMethod.POST, "/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("USER","ADMIN")

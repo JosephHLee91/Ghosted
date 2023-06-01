@@ -16,7 +16,7 @@ public class AppConfig {
         return new BCryptPasswordEncoder();
     }
     @Bean
-    public WebMvcConfigurer corsConfigure() {
+    public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
