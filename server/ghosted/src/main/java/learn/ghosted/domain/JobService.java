@@ -75,13 +75,8 @@ public class JobService {
         if (Validations.isNullOrBlank(job.getCompany())) {
             result.addMessage("company is required", ResultType.INVALID);
         }
-
-        if (job.getDob() != null && job.getDob().isAfter(LocalDate.now().minusYears(12))) {
-            result.addMessage("agents younger than 12 are not allowed", ResultType.INVALID);
-        }
-
-        if (job.getHeightInInches() < 36 || job.getHeightInInches() > 96) {
-            result.addMessage("height must be between 36 and 96 inches", ResultType.INVALID);
+        if (Validations.isNullOrBlank(job.getLink())) {
+            result.addMessage("link is required", ResultType.INVALID);
         }
 
         return result;
