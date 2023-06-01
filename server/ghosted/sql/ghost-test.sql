@@ -7,7 +7,7 @@ create table `user` (
 	user_id int primary key auto_increment,
     first_name varchar(255) not null,
     last_name varchar(255) not null,
-    username varchar(255) not null unique,
+    email varchar(255) not null unique,
     password_hash varchar(2048) not null,
     enabled bit not null default(1)
 );

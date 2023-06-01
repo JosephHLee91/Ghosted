@@ -7,7 +7,7 @@ create table `user` (
 	user_id int primary key auto_increment,
     first_name varchar(255) not null,
     last_name varchar(255) not null,
-    username varchar(255) not null unique,
+    email varchar(255) not null unique,
     password_hash varchar(2048) not null,
     enabled bit not null default(1)
 );
@@ -94,7 +94,7 @@ insert into `role` (`name`) values
     ('ADMIN');
     
 -- passwords are set to "P@ssw0rd!"
-insert into `user` (first_name, last_name, username, password_hash, enabled)
+insert into `user` (first_name, last_name, email, password_hash, enabled)
     values
     ('John', 'Smith', 'john@smith.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
     ('Sally', 'Jones', 'sally@jones.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1);
