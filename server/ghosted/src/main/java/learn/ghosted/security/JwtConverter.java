@@ -37,9 +37,9 @@ public class JwtConverter {
 
     public AppUser getUserFromToken(String token) {
 
-        //if (token == null || !token.startsWith("Bearer ")) {
-        //    return null;
-        //}
+        if (token == null || !token.startsWith("Bearer ")) {
+            return null;
+        }
 
         try {
             Jws<Claims> jws = Jwts.parserBuilder()
@@ -52,7 +52,6 @@ public class JwtConverter {
             int appUserId = (int)jws.getBody().get("user_id");
             String firstName = (String) jws.getBody().get("firstName");
             String lastName = (String) jws.getBody().get("lastName");
-            boolean enabled = (boolean) jws.getBody().get("enabled");
             String authStr = (String) jws.getBody().get("authorities");
 
             List<SimpleGrantedAuthority> roles = Arrays.stream(authStr.split(","))
