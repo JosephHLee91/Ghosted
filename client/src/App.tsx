@@ -15,7 +15,7 @@ function App() {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('jtw');
+    localStorage.removeItem('jwt');
   };
 
   useEffect(() => {

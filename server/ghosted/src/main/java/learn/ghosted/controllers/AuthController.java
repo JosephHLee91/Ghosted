@@ -55,15 +55,16 @@ public class AuthController {
             System.out.println(ex);
         }
 
-        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Error", "Username or password is incorrect");
+        return new ResponseEntity<>(map, HttpStatus.FORBIDDEN);
     }
 
     @PostMapping("/refresh_token")
     // new... inject our `AppUser`, set by the `JwtRequestFilter`
     public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser appUser) {
         String jwtToken = converter.getTokenFromUser(appUser);
-
-        System.out.println("Check here -----asdoaishbdlaksdbalksdbalskbd");
 
         HashMap<String, String> map = new HashMap<>();
         map.put("jwt_token", jwtToken);

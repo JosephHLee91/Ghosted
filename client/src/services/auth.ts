@@ -21,7 +21,7 @@ export const authenticate = async (user: any) => {
   if (res.ok) {
     const data = await res.json();
     const token = data.jwt_token;
-    localStorage.setItem('jtw', token);
+    localStorage.setItem('jwt', token);
     const user = createUser(token);
     return Promise.resolve(user);
   } else {
@@ -42,7 +42,7 @@ export const refreshToken = async () => {
   if (res.ok) {
     const data = await res.json();
     const token = data.jwt_token;
-    localStorage.setItem('jtw', token);
+    localStorage.setItem('jwt', token);
     const user = createUser(token);
     return Promise.resolve(user);
   } else {
