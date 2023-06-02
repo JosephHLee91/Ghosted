@@ -79,8 +79,8 @@ begin
 	alter table testimonial auto_increment = 1;
     delete from `user`;
     alter table `user` auto_increment = 1;
-    
-    
+
+
     insert into `user`(user_id, first_name, last_name, email, password_hash, enabled) values
 		(1, 'John', 'Smith', 'john@smith.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
 		(2, 'Sally', 'Jones', 'sally@jones.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1);
@@ -91,9 +91,9 @@ begin
         
 	insert into `resource` (resource_id, resource_title, resource_link, resource_type, user_id)
 		values
-	(1, '6 Ways to Take Initiative at Work', 'https://jobs.washingtonpost.com/article/6-ways-to-take-initiative-at-work/?s=3', 'article', 1),
-    (2, 'A Five-Week Guide to Getting a Job', 'https://hbr.org/2021/03/a-five-week-guide-to-getting-a-job', 'article', 2),
-    (3, 'Top 5 Job Search Strategies To Find A Job', 'https://www.youtube.com/watch?v=r3yiGbnPYFI', 'video', 2);
+	(1, '6 Ways to Take Initiative at Work', 'https://jobs.washingtonpost.com/article/6-ways-to-take-initiative-at-work/?s=3', 'TEXT', 1),
+    (2, 'A Five-Week Guide to Getting a Job', 'https://hbr.org/2021/03/a-five-week-guide-to-getting-a-job', 'TEXT', 2),
+    (3, 'Top 5 Job Search Strategies To Find A Job', 'https://www.youtube.com/watch?v=r3yiGbnPYFI', 'MEDIA', 2);
         
 	insert into testimonial 
 		(testimonial_id, testimonial_review, testimonial_rating, user_id) 
@@ -107,6 +107,5 @@ end //
 delimiter ;
 
 SET SQL_SAFE_UPDATES=0;
-call set_known_good_state;
+call set_known_good_state();
 SET SQL_SAFE_UPDATES=1;
-
