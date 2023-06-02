@@ -42,32 +42,12 @@ create table `resource` (
         references `user`(user_id)
 );
 
-create table cover_letter (
-	cover_id int primary key auto_increment,
-    cover_file binary not null,
-    cover_name varchar(255) null,
-    user_id int not null,
-    constraint fk_cover_letter_user_id
-		foreign key (user_id)
-        references `user`(user_id)
-);
-
 create table testimonial (
 	testimonial_id int primary key auto_increment,
     testimonial_review text not null,
     testimonial_rating int not null,
     user_id int not null,
     constraint fk_testimonial_user_id
-		foreign key (user_id)
-        references `user`(user_id)
-);
-
-create table `resume` (
-	resume_id int primary key auto_increment,
-    resume_file binary null,
-    resume_name varchar(255) null,
-    user_id int not null,
-    constraint fk_resume_user_id
 		foreign key (user_id)
         references `user`(user_id)
 );
@@ -80,10 +60,10 @@ create table job_applied (
     job_link varchar(255) not null,
     job_status varchar(15) not null,
     job_location varchar(255) null,
-    resume_id int not null,
-    constraint fk_job_applied_resume_id
-		foreign key (resume_id)
-        references `resume`(resume_id)
+    user_id int not null,
+    constraint fk_job_applied_user_id
+		foreign key (user_id)
+        references `user`(user_id)
 );
 
 
@@ -104,11 +84,7 @@ insert into user_role
     (1, 2),
     (2, 1);
     
-insert into `resume`(resume_id, resume_file, resume_name, user_id) values
-        (1, null, 'Joe\'s Resume', 1),
-        (2, null, 'Someone\'s Resume', 2);
-    
-insert into job_applied(job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location, resume_id) values
+insert into job_applied(job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location, user_id) values
         (1, 'Junior Developer', 'Dev10', '2020-01-01', 'https://www.dev-10.com', 'pending', null, 1),
         (2, 'Instructor', 'Dev10', '2022-01-01', 'https://www.dev-10.com', 'pending', null, 2);
         
