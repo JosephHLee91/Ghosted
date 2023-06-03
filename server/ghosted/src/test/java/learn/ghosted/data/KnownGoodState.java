@@ -7,15 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class KnownGoodState {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+  @Autowired
+  JdbcTemplate jdbcTemplate;
 
-    static boolean hasRun = false;
+  static boolean hasRun = false;
 
-    void set() {
-        if (!hasRun) {
-            hasRun = true;
-            jdbcTemplate.update("call set_known_good_state();");
-        }
+  void set() {
+    if (!hasRun) {
+      hasRun = true;
+      jdbcTemplate.update("call set_known_good_state();");
     }
+  }
 }
