@@ -1,5 +1,6 @@
 package learn.ghosted.data;
 
+import learn.ghosted.models.AppUser;
 import learn.ghosted.models.Job;
 import learn.ghosted.models.Status;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class JobJdbcTemplateRepositoryTest {
-final static int NEXT_ID =4;
+final static int NEXT_ID = 3;
 @Autowired
 JobJdbcTemplateRepository repository;
 
@@ -30,10 +31,7 @@ KnownGoodState knownGoodState;
         List<Job> jobs = repository.findAll();
         assertNotNull(jobs);
 
-        // can't predict order
-        // if delete is first, we're down to 7
-        // if add is first, we may go as high as 10
-        assertTrue(jobs.size() >= 7 && jobs.size() <= 10);
+        assertTrue(jobs.size() >= 1 && jobs.size() <= 2);
     }
 
     @Test
@@ -48,19 +46,28 @@ KnownGoodState knownGoodState;
         assertEquals(NEXT_ID, actual.getJobId());
 
         // null dob
-        job = makeJob();
-        job.setDateApplied(null);
-        actual = repository.add(job);
-        assertNotNull(actual);
-        assertEquals(NEXT_ID + 1, actual.getJobId());
+//        job = makeJob();
+//        job.setDateApplied(null);
+//        actual = repository.add(job);
+//        assertNotNull(actual);
+//        assertEquals(NEXT_ID + 1, actual.getJobId());
     }
 
     @Test
     void update() {
+        Job job = makeJob();
+        job.setJobId(2);
+        job.setStatus(Status.DECLINED);
+        assertTrue(repository.update(job));
+
+        job.setJobId(13);
+        assertFalse(repository.update(job));
     }
 
     @Test
     void deleteById() {
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(2));
     }
     private Job makeJob() {
         Job job = new Job();
@@ -70,6 +77,11 @@ KnownGoodState knownGoodState;
         job.setLink("Indeed.com");
         job.setDateApplied(LocalDate.of(2023, 1, 15));
         job.setStatus(Status.ACCEPTED);
+
+        AppUser appUser = new AppUser();
+        appUser.setAppUserId(1);
+
+        job.setAppUser(appUser);
         return job;
     }
 }

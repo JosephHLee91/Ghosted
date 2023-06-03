@@ -2,6 +2,7 @@ package learn.ghosted.models;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public class Job {
     private int jobId;
@@ -11,12 +12,13 @@ public class Job {
     private String link;
     private Status status;
     private String location;
+    private AppUser appUser;
 
     public Job () {
 
     }
 
-    public Job(int jobId, String title, String company, LocalDate dateApplied, String link, Status status, String location) {
+    public Job(int jobId, String title, String company, LocalDate dateApplied, String link, Status status, String location, AppUser appUser) {
         this.jobId = jobId;
         this.title = title;
         this.company = company;
@@ -24,6 +26,7 @@ public class Job {
         this.link = link;
         this.status = status;
         this.location = location;
+        this.appUser = appUser;
     }
 
     public int getJobId() {
@@ -77,8 +80,15 @@ public class Job {
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
 }

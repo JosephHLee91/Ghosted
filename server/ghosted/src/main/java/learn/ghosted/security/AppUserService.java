@@ -19,6 +19,7 @@ public class AppUserService implements UserDetailsService {
     private final AppUserRepository repository;
     private final PasswordEncoder encoder;
 
+
     public AppUserService(AppUserRepository repository, PasswordEncoder encoder) {
         this.repository = repository;
         this.encoder = encoder;
@@ -35,7 +36,7 @@ public class AppUserService implements UserDetailsService {
     }
 
     public Result<AppUser> create(String firstName, String lastName, String username, String password) {
-        Result<AppUser> result = validate(username, password);
+        Result<AppUser> result = validate( username, password);
         if (!result.isSuccess()) {
             return result;
         }
@@ -60,7 +61,6 @@ public class AppUserService implements UserDetailsService {
             result.addMessage("email is required", ResultType.INVALID);
             return result;
         }
-
         if (password == null) {
             result.addMessage("password is required", ResultType.INVALID);
             return result;

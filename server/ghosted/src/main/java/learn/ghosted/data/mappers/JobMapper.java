@@ -20,7 +20,7 @@ public class JobMapper implements RowMapper<Job> {
         }
         job.setLink(rs.getString("job_link"));
 
-        Status status = Status.valueOf("status");
+        Status status = Status.valueOf(rs.getString("job_status"));
         job.setStatus(status);
 
         job.setLocation(rs.getString("job_location"));
