@@ -5,6 +5,7 @@ import Signup from './components/Signup.tsx';
 import Navbar from './components/Navbar.tsx';
 import Home from './components/Home.tsx';
 import Resources from './components/Resources.tsx';
+import TestimonialForm from './components/TestimonialForm';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
 
@@ -43,6 +44,7 @@ function App() {
             <Route path='/resources' element={<Resources />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/testimonials' element={<TestimonialForm />} />
           </Routes>
         </Router>
       </div>
