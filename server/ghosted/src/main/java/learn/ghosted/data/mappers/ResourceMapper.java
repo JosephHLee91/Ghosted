@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResourceMapper implements RowMapper<Resource> {
-
+ 
     @Override
     public Resource mapRow(ResultSet rs, int rowNum) throws SQLException {
         Resource resource = new Resource();

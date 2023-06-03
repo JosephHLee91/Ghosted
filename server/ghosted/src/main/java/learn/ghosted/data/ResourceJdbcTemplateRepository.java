@@ -64,17 +64,17 @@ public class ResourceJdbcTemplateRepository implements ResourceRepository {
 
     @Override
     public boolean update(Resource resource) {
-        final String sql = "update resource set "
+        final String sql = "update `resource` set "
                 + "resource_title = ?, "
                 + "resource_link = ?, "
                 + "resource_type = ?, "
-                + "user_id = ?, "
-                + "where resource_id = ?, ";
+                + "user_id = ? "
+                + "where resource_id = ?;";
 
         return jdbcTemplate.update(sql,
                 resource.getTitle(),
                 resource.getLink(),
-                resource.getResourceType(),
+                resource.getResourceType().toString(),
                 resource.getUserId(),
                 resource.getResourceId()) > 0;
     }
