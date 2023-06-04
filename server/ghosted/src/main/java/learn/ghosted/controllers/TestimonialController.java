@@ -35,7 +35,8 @@ public class TestimonialController {
   }
 
   @GetMapping("/user/{user_id}")
-  public ResponseEntity<List> findByUserId(int user_id) {
+  public ResponseEntity<List> findByUserId(@PathVariable int user_id) {
+    System.out.println("HERE");
     List<Testimonial> testimonial = service.findByUserId(user_id);
 
     if (testimonial == null) {

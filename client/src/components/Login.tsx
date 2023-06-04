@@ -71,7 +71,7 @@ const Login = () => {
         opacity: '0',
         transition: 'opacity .75s linear',
       });
-    }, 750);
+    }, 2000);
 
     setTimeout(() => {
       setAlertStyle({
@@ -79,7 +79,7 @@ const Login = () => {
         transition: '',
       });
       setErrorsBoolean(false);
-    }, 1500);
+    }, 3000);
   };
 
   useEffect(() => {

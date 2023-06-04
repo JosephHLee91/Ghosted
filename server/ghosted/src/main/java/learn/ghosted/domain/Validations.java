@@ -7,7 +7,7 @@ public class Validations {
   }
 
   public static boolean isWithInStringRange(String value){
-    return value.length() < 1 || value.length() > 800;
+    return value.length() < 10 || value.length() > 600;
   }
 
 }

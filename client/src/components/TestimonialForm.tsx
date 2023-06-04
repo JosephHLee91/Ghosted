@@ -1,12 +1,8 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../contexts/AuthContext';
 
 const TestimonialForm = () => {
-  // private String testimonial_review;
-  // private int testimonial_rating;
-  // private int user_id;
-
   const [reviewLength, setReviewLength] = useState<number>(0);
   const [errorsBoolean, setErrorsBoolean] = useState<boolean>(false);
   const [errors, setErrors] = useState<string[]>([]);
@@ -38,38 +34,46 @@ const TestimonialForm = () => {
     setReviewLength(e.target.value.length);
   };
 
-  const formSubmit = (e: SyntheticEvent) => {
+  const formSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
+    addTestimonialToServer();
+  };
 
-    // /api/testimonial
-    console.log(testimonial);
-    // authenticate(user)
-    //   .then((userLogin) => {
-    //     setErrors(['Login successful!']);
-    //     setSuccessErrorHeader('Success');
-    //     setPopupStyle({
-    //       background: 'bg-green-100',
-    //       header: 'text-green-900',
-    //       body: 'text-green-800',
-    //     });
-    //     setErrorsBoolean(true);
-    //     fadeOutAlert();
-    //     setTimeout(() => {
-    //       login(userLogin);
-    //       navigate('/');
-    //     }, 1000);
-    //   })
-    //   .catch((err) => {
-    //     setErrors(err);
-    //     setSuccessErrorHeader('Error');
-    //     setPopupStyle({
-    //       background: 'bg-red-100',
-    //       header: 'text-red-900',
-    //       body: 'text-red-800',
-    //     });
-    //     fadeOutAlert();
-    //     setErrorsBoolean(true);
-    //   });
+  const addTestimonialToServer = async () => {
+    const init = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify(testimonial),
+    };
+
+    try {
+      const res = await fetch(`http://localhost:8080/api/testimonial`, init);
+      if (res.ok) {
+        setErrors(['Testimonial added!']);
+        setSuccessErrorHeader('Success');
+        setPopupStyle({
+          background: 'bg-green-100',
+          header: 'text-green-900',
+          body: 'text-green-800',
+        });
+        setErrorsBoolean(true);
+        fadeOutAlert();
+
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 2000);
+        console.log('asdkjasbdakjsb');
+      } else {
+        const data = await res.json();
+
+        errorHandler(data);
+      }
+    } catch (err: any) {
+      errorHandler(['Something went wrong on our end. Try again later!']);
+    }
   };
 
   const fadeOutAlert = () => {
@@ -83,7 +87,7 @@ const TestimonialForm = () => {
         opacity: '0',
         transition: 'opacity .75s linear',
       });
-    }, 750);
+    }, 2000);
 
     setTimeout(() => {
       setAlertStyle({
@@ -91,7 +95,20 @@ const TestimonialForm = () => {
         transition: '',
       });
       setErrorsBoolean(false);
-    }, 1500);
+    }, 3000);
+  };
+
+  const errorHandler = (errors: string[]) => {
+    setErrors(errors);
+    setSuccessErrorHeader('Error');
+    setPopupStyle({
+      background: 'bg-red-100',
+      header: 'text-red-900',
+      body: 'text-red-800',
+    });
+
+    fadeOutAlert();
+    setErrorsBoolean(true);
   };
 
   useEffect(() => {
@@ -144,7 +161,6 @@ const TestimonialForm = () => {
 
           <select
             name='testimonial_rating'
-            id='HeadlineAct'
             className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-6 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
             onChange={formSelectChange}
             required
