@@ -1,0 +1,44 @@
+
+
+  @url = http://localhost:8080
+
+###
+// Finds all testimonials
+GET {{url}}/api/testimonial HTTP/1.1
+
+
+###
+// Finds testimonial by testimonial id
+GET {{url}}/api/testimonial/1 HTTP/1.1
+
+###
+
+###
+// Finds testimonial by user id
+GET {{url}}/api/testimonial/user/1 HTTP/1.1
+
+###
+
+POST {{url}}/api/testimonial HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiQW5kcmV3QHRlc3QuY29tIiwidXNlcl9pZCI6MywiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjg1ODIzNzgyfQ.HFXBB83BcvxQHdbqJFDJsoy6T3yVbXsYYEP0rf7b-gw
+
+{
+    "testimonial_review": "I'm loving this site! I'm about to keep track of all of my job applications!",
+    "testimonial_rating": 5,
+    "user_id": 2
+}
+
+###
+
+POST {{url}}/api/testimonial HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiQW5kcmV3QHRlc3QuY29tIiwidXNlcl9pZCI6MywiYXV0aG9yaXRpZXMiOiJVU0VSIiwiZXhwIjoxNjg1ODM2NDAwfQ.BVuGBq2ip4xTKg7HOIp3V1NG0jLr6lCxyuj4vQRPYP8
+
+{
+    "testimonial_review": "asdasdasdasdasdasdasd",
+    "testimonial_rating": 5,
+    "user_id": 2
+}
+
+###

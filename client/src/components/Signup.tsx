@@ -76,7 +76,7 @@ const Signup = () => {
         opacity: '0',
         transition: 'opacity .75s linear',
       });
-    }, 750);
+    }, 2000);
 
     setTimeout(() => {
       setAlertStyle({
@@ -84,7 +84,7 @@ const Signup = () => {
         transition: '',
       });
       setErrorsBoolean(false);
-    }, 1500);
+    }, 3000);
   };
 
   useEffect(() => {

@@ -48,7 +48,7 @@ public class TestimonialService {
     }
 
     if(Validations.isWithInStringRange(testimonial.getTestimonial_review())){
-      result.addMessage("Review must be between 1 and 800 characters", ResultType.INVALID);
+      result.addMessage("Message must be between 10 and 600 characters", ResultType.INVALID);
     }
 
     if(testimonial.getTestimonial_rating() < 1 || testimonial.getTestimonial_rating() > 5){
