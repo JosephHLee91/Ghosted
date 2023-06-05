@@ -6,6 +6,9 @@
 // Finds all testimonials
 GET {{url}}/api/testimonial HTTP/1.1
 
+###
+// Finds all testimonials with users
+GET {{url}}/api/testimonial/allUserTestimonial HTTP/1.1
 
 ###
 // Finds testimonial by testimonial id

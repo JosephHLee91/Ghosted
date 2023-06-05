@@ -2,6 +2,7 @@ package learn.ghosted.domain;
 
 import learn.ghosted.data.TestimonialRepository;
 import learn.ghosted.models.Testimonial;
+import learn.ghosted.models.TestimonialUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,10 @@ public class TestimonialService {
 
   public List<Testimonial> findAll() {
     return repository.findAll();
+  }
+
+  public List<TestimonialUser> findAllWithUser() {
+    return repository.findAllWithUser();
   }
 
   public List<Testimonial> findByUserId(int user_id){

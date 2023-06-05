@@ -1,3 +1,9 @@
+import Welcome from './Welcome';
+import Features from './Features';
+import Testimonials from './Testimonials';
+import HomeResources from './HomeResources';
+import GetStarted from './GetStarted';
+import Footer from './Footer';
 import { useContext, useEffect } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +12,7 @@ const Home = () => {
   const currUser = useContext(AuthContext);
 
   useEffect(() => {
-    document.title = 'Ghosted';
+    document.title = 'Ghosted - Track your job apps';
     if (currUser.user) {
       navigate('/dashboard');
     }
@@ -14,7 +20,12 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home Route Placeholder</h1>
+      <Welcome />
+      <Features />
+      <Testimonials />
+      <HomeResources />
+      <GetStarted />
+      <Footer />
     </div>
   );
 };
