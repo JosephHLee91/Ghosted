@@ -126,7 +126,7 @@ const TestimonialForm = () => {
       <div style={{ display: 'none' }}>Placeholder success/error</div>
       <form
         onSubmit={formSubmit}
-        className='w-full bg-slate-50 max-w-lg border-2 border-indigo-500 rounded-md p-6'
+        className='w-full bg-slate-50 max-w-lg drop-shadow-md border-2 border-indigo-500 rounded-md p-6'
       >
         <div className='w-full px-3'>
           <label

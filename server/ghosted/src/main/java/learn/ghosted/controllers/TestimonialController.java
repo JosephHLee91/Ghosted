@@ -3,6 +3,7 @@ package learn.ghosted.controllers;
 import learn.ghosted.domain.Result;
 import learn.ghosted.domain.TestimonialService;
 import learn.ghosted.models.Testimonial;
+import learn.ghosted.models.TestimonialUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,11 @@ public class TestimonialController {
   @GetMapping
   public List<Testimonial> findAll() {
     return service.findAll();
+  }
+
+  @GetMapping("/allUserTestimonial")
+  public List<TestimonialUser> findAllWithUser() {
+    return service.findAllWithUser();
   }
 
   @GetMapping("/{testimonial_id}")

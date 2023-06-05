@@ -1,7 +1,9 @@
 package learn.ghosted.data;
 
 import learn.ghosted.data.mappers.TestimonialMapper;
+import learn.ghosted.data.mappers.TestimonialUserMapper;
 import learn.ghosted.models.Testimonial;
+import learn.ghosted.models.TestimonialUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -36,6 +38,17 @@ public class TestimonialJdbcTemplateRepository implements TestimonialRepository 
       + "from testimonial;";
 
     return jdbcTemplate.query(sql, new TestimonialMapper());
+  }
+
+  @Override
+  public List<TestimonialUser> findAllWithUser() {
+    final String sql = "select t.testimonial_id, t.testimonial_review, t.testimonial_rating, t.user_id, u.first_name, u.last_name "
+      + "from testimonial t "
+      + "inner join `user` u "
+      + "on t.user_id = u.user_id "
+      + "where t.testimonial_rating > 3;";
+
+    return jdbcTemplate.query(sql, new TestimonialUserMapper());
   }
 
   @Override

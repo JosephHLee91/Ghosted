@@ -77,7 +77,11 @@ insert into `role` (`name`) values
 insert into `user` (first_name, last_name, email, password_hash, enabled)
     values
     ('John', 'Smith', 'john@smith.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
-    ('Sally', 'Jones', 'sally@jones.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1);
+    ('Sally', 'Jones', 'sally@jones.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
+    ('Justin', 'Mitchell', 'justinmitchell@gmail.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
+    ('Brandon', 'Ricardo', 'brandon@ricardo.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
+    ('Leo', 'Brown', 'leobrown@hotmail.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
+    ('Jimmy', 'Mao', 'jimmy@mao.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1);
     
 insert into user_role
     values
@@ -95,6 +99,9 @@ insert into `resource` (resource_id, resource_title, resource_link, resource_typ
         
 insert into testimonial (testimonial_id, testimonial_review, testimonial_rating, user_id) 
 	values
-		(1,'This website is great, I got a Job!', 5, 1),
-		(2,'I don\'t like this website, I didn\'t get a job', 1, 2),
-		(3,'I love this site!, I almost got a job', 4, 1);
+		(1,'Ghosted is great! It helped me get a job with all of its resources!', 5, 1),
+		(2,'I love Ghosted! Do yourself a favor and use it to help your next job search!', 4, 2),
+		(3,'I love this site! Its job application tracking dashboard helps me stay organized while on my job hunt.', 5, 3),
+        (4,'I can\'t imagine my job search without utilizing the job archive dashboard. It took away the need of bloated CSV editors and sped up my job hunt!', 5, 4),
+        (5,'Ghosted\'s application status chart has helped me stay organzied with the status of all my job applications. I definitely recommend anyone on the job hunt take advantage of it!', 5, 5),
+        (6,'Ghosted has sped up my organization by allowing me to track all my applications in one place! There\'s no way I go back to the way tracked all my applications in the past.', 5, 6);
