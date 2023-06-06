@@ -1,8 +1,6 @@
 package learn.ghosted.data;
 
-import learn.ghosted.data.mappers.AppUserMapper;
 import learn.ghosted.data.mappers.JobMapper;
-import learn.ghosted.models.AppUser;
 import learn.ghosted.models.Job;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -12,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
@@ -26,7 +23,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
     }
     @Override
     public List<Job> findAll() {
-        final String sql = "select job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location "
+        final String sql = "select job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location, user_id "
                 + "from job_applied limit 1000;";
         return jdbcTemplate.query(sql, new JobMapper());
     }
@@ -34,7 +31,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
     @Transactional
     public Job findById(int jobId) {
 
-        final String sql = "select job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location "
+        final String sql = "select  job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location "
                 + "from job_applied "
                 + "where job_id = ?;";
 
@@ -42,6 +39,13 @@ public class JobJdbcTemplateRepository implements JobRepository {
                 .findFirst().orElse(null);
 
         return job;
+    }
+    @Override
+    public List<Job> findByUserId(int appUserId) {
+        final String sql = "select job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location "
+                + "from job_applied "
+                + "where user_id = ?;";
+        return jdbcTemplate.query(sql, new JobMapper(), appUserId);
     }
     @Override
     public Job add(Job job) {
@@ -58,7 +62,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
             ps.setString(4, job.getLink());
             ps.setString(5, job.getStatus().toString());
             ps.setString(6, job.getLocation());
-            ps.setInt(7, job.getAppUser().getAppUserId());
+            ps.setInt(7, job.getAppUserId());
             return ps;
         }, keyHolder);
 

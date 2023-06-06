@@ -3,6 +3,7 @@ package learn.ghosted.controllers;
 import learn.ghosted.domain.JobService;
 import learn.ghosted.domain.Result;
 import learn.ghosted.models.Job;
+import learn.ghosted.models.Testimonial;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,16 @@ public class JobController {
     @GetMapping
     public List<Job> findAll() {
         return service.findAll();
+    }
+    @GetMapping("/user/{appUserId}")
+    public ResponseEntity<List> findByUserId(@PathVariable int appUserId) {
+
+        List<Job> jobs = service.findByUserId(appUserId);
+
+        if (jobs == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(jobs);
     }
 
     @GetMapping("/{jobId}")

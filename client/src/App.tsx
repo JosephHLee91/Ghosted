@@ -8,6 +8,8 @@ import Resources from './components/Resources.tsx';
 import TestimonialForm from './components/TestimonialForm';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
+import JobForm from './components/JobForm.tsx';
+import Dashboard from './components/Dashboard.tsx';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,6 +47,8 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/testimonials' element={<TestimonialForm />} />
+            <Route path='/jobs' element={<JobForm />} />
+            <Route path='/dashboard' element={<Dashboard />} />
           </Routes>
         </Router>
       </div>

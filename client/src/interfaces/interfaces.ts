@@ -6,3 +6,14 @@ export interface testimonial {
   testimonial_review: string;
   user_id: number;
 }
+
+export interface job {
+  jobId: number;
+  title: string;
+  company: string;
+  dateApplied: string;
+  link: string;
+  location: string;
+  status: string;
+}
+

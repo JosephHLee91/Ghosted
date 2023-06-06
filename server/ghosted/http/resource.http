@@ -22,7 +22,7 @@ Content-Type: application/json
 
 POST {{url}}/api/resources HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJ1c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IkFETUlOIiwiZXhwIjoxNjg1Nzk4ODIzfQ.-LhiaINUtsxDnAlQ6ww3ICKAyJjY9sVi949ii9UcOaI
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJ1c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IkFETUlOIiwiZXhwIjoxNjg1ODM1ODQ5fQ.b4paAoIOosM03oudRmqwPgpLHapeUfcKRLYkAoL_xqk
 
 {
    "resource_title": "A New Way To Hire",
