@@ -109,3 +109,4 @@ delimiter ;
 SET SQL_SAFE_UPDATES=0;
 call set_known_good_state();
 SET SQL_SAFE_UPDATES=1;
+
