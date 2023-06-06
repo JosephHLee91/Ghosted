@@ -77,11 +77,7 @@ KnownGoodState knownGoodState;
         job.setLink("Indeed.com");
         job.setDateApplied(LocalDate.of(2023, 1, 15));
         job.setStatus(Status.ACCEPTED);
-
-        AppUser appUser = new AppUser();
-        appUser.setAppUserId(1);
-
-        job.setAppUser(appUser);
+        job.setAppUserId(2);
         return job;
     }
 }

@@ -57,11 +57,7 @@ public class JobServiceTest {
         job.setLink("ziprecruiter.com");
         job.setStatus(Status.GHOSTED);
         job.setLocation("Remote");
-
-        AppUser appUser = new AppUser();
-        appUser.setAppUserId(1);
-
-        job.setAppUser(appUser);
+        job.setAppUserId(2);
 
         return job;
     }

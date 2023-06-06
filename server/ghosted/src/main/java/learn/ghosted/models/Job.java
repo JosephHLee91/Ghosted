@@ -12,13 +12,13 @@ public class Job {
     private String link;
     private Status status;
     private String location;
-    private AppUser appUser;
+    private int appUserId;
 
     public Job () {
 
     }
 
-    public Job(int jobId, String title, String company, LocalDate dateApplied, String link, Status status, String location, AppUser appUser) {
+    public Job(int jobId, String title, String company, LocalDate dateApplied, String link, Status status, String location, int appUserId) {
         this.jobId = jobId;
         this.title = title;
         this.company = company;
@@ -26,7 +26,7 @@ public class Job {
         this.link = link;
         this.status = status;
         this.location = location;
-        this.appUser = appUser;
+        this.appUserId = appUserId;
     }
 
     public int getJobId() {
@@ -84,11 +84,11 @@ public class Job {
         this.location = location;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setAppUserId(int appUserId) {
+        this.appUserId = appUserId;
     }
-    public AppUser getAppUser() {
-        return appUser;
+    public int getAppUserId() {
+        return appUserId;
     }
 
 }

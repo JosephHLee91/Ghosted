@@ -18,6 +18,10 @@ public class JobService {
         return repository.findAll();
     }
 
+    public List<Job> findByUserId(int appUserId) {
+        return repository.findByUserId(appUserId);
+    }
+
     public Job findById(int agentId) {
         return repository.findById(agentId);
     }

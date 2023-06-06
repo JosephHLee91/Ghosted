@@ -11,6 +11,8 @@ public interface JobRepository {
     @Transactional
     Job findById(int jobId);
 
+    List<Job> findByUserId(int appUserId);
+
     Job add(Job job);
 
     boolean update(Job job);
