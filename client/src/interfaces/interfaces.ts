@@ -8,6 +8,7 @@ export interface testimonial {
 }
 
 export interface resource {
+  resourceId: number,
   title: string,
   link: string,
   resourceType: string,
