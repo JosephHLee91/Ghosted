@@ -94,8 +94,14 @@ insert into job_applied(job_id, job_title, job_company, job_date_applied, job_li
         
 insert into `resource` (resource_id, resource_title, resource_link, resource_type, user_id)
 	values
-	(1, '6 Ways to Take Initiative at Work', 'https://jobs.washingtonpost.com/article/6-ways-to-take-initiative-at-work/?s=3', 'article', 1),
-	(2, 'A Five-Week Guide to Getting a Job', 'https://hbr.org/2021/03/a-five-week-guide-to-getting-a-job', 'article', 2);
+	(1, '6 Ways to Take Initiative at Work', 'https://jobs.washingtonpost.com/article/6-ways-to-take-initiative-at-work/?s=3', 'TEXT', 1),
+	(2, 'A Five-Week Guide to Getting a Job', 'https://hbr.org/2021/03/a-five-week-guide-to-getting-a-job', 'MEDIA', 2),
+    (3, 'Everything You Need to Know About Job Searching in the Digital Age', 'https://www.businessnewsdaily.com/9358-digital-job-search-guide.html', 'TEXT', 3),
+    (4, 'Didn`t Get The Job? Here`s What You Need To Do...', 'https://www.workitdaily.com/what-to-do-job-rejection', 'TEXT', 3),
+    (5, 'Which keywords should you use in your resume?', 'https://www.careerbuilder.com/advice/blog/why-keywords-are-so-important-in-a-resume', 'TEXT', 4),
+    (6, 'How to Get a Job With No Experience', 'https://www.youtube.com/watch?v=OF8nx8Pt0tI', 'MEDIA', 4),
+    (7, 'First Job Guide: How to Get a Job - No Experience Necessary! | Indeed Career Tips', 'https://www.youtube.com/watch?v=nTRI9GJW9Y0&t=1s', 'MEDIA', 5),
+    (8, 'What to Do When You Can`t Find a Job: 5 Tips', 'https://www.youtube.com/watch?v=TJqmZ0bVucw', 'MEDIA', 6);
         
 insert into testimonial (testimonial_id, testimonial_review, testimonial_rating, user_id) 
 	values
