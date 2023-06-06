@@ -2,9 +2,12 @@ package learn.ghosted.domain;
 
 import learn.ghosted.data.ResourceRepository;
 import learn.ghosted.models.Resource;
+import learn.ghosted.models.ResourceUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ResourceService {
@@ -16,6 +19,10 @@ public class ResourceService {
 
     public List<Resource> findAll() {
         return repository.findAll();
+    }
+
+    public List<ResourceUser> findAllWithUser() {
+        return repository.findAllWithUser();
     }
 
     public Resource findById(int resourceId) {
@@ -65,6 +72,13 @@ public class ResourceService {
 
     private Result<Resource> validate(Resource resource) {
         Result<Resource> result = new Result<>();
+        Optional<Resource> resources = repository.findAll().stream()
+                .filter(r -> r.getTitle().equalsIgnoreCase(resource.getTitle())
+                        && r.getLink().equalsIgnoreCase(resource.getLink())
+                        && r.getResourceType().equals(resource.getResourceType()))
+                .findFirst();
+
+
         if (resource == null) {
             result.addMessage("Resource cannot be null", ResultType.INVALID);
             return result;
@@ -86,6 +100,10 @@ public class ResourceService {
             result.addMessage("User Id is required", ResultType.INVALID);
         } else if (repository.findById(resource.getUserId()) == null) {
             result.addMessage("User must be registered", ResultType.INVALID);
+        }
+
+        if (resources.isPresent()) {
+            result.addMessage("Duplicate resource already exists", ResultType.INVALID);
         }
 
         return result;

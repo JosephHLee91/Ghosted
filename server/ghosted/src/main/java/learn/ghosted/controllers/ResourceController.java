@@ -4,6 +4,7 @@ import learn.ghosted.domain.ResourceService;
 import learn.ghosted.domain.Result;
 import learn.ghosted.domain.ResultType;
 import learn.ghosted.models.Resource;
+import learn.ghosted.models.ResourceUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class ResourceController {
     @GetMapping
     public List<Resource> findAll() {
         return service.findAll();
+    }
+
+    @GetMapping("/resourceUsers")
+    public List<ResourceUser> findAllWithUser() {
+        return service.findAllWithUser();
     }
 
     @GetMapping("/{resourceId}")

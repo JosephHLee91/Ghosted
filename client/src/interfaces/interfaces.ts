@@ -6,3 +6,12 @@ export interface testimonial {
   testimonial_review: string;
   user_id: number;
 }
+
+export interface resource {
+  title: string,
+  link: string,
+  resourceType: string,
+  userId: number;
+  first_name: string,
+  last_name: string;
+}

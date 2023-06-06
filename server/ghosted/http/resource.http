@@ -2,7 +2,7 @@
 
 ###
 
-GET {{url}}/resources HTTP/1.1
+GET {{url}}/api/resources HTTP/1.1
 
 ###
 
@@ -22,11 +22,23 @@ Content-Type: application/json
 
 POST {{url}}/api/resources HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJ1c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IkFETUlOIiwiZXhwIjoxNjg1Nzk4ODIzfQ.-LhiaINUtsxDnAlQ6ww3ICKAyJjY9sVi949ii9UcOaI
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJ1c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IkFETUlOIiwiZXhwIjoxNjg1ODM3NjY2fQ.6ReyaYsx9mbmQgY5HqCrgQpk0v6JZwHTEYU41aUJDlU
 
 {
-   "resource_title": "A New Way To Hire",
-    "resource_Link": "www.workforhire.com",
-    "resource_type": "TEXT",
+    "title": "A New Way To Hire",
+    "link": "www.workforhire.com",
+    "resourceType": "TEXT",
+    "userId": 2
+}
+
+###
+
+POST {{url}}/api/testimonial HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaG9zdGVkIiwic3ViIjoiam9obkBzbWl0aC5jb20iLCJ1c2VyX2lkIjoxLCJhdXRob3JpdGllcyI6IkFETUlOIiwiZXhwIjoxNjg1ODM2MjM0fQ.Mq0q4pTbhcCdCQV78ECOR-KlzYnEAQK_JyLBm1fUEEY
+
+{
+    "testimonial_review": "I'm loving this site! I'm about to keep track of all of my job applications!",
+    "testimonial_rating": 5,
     "user_id": 2
 }
