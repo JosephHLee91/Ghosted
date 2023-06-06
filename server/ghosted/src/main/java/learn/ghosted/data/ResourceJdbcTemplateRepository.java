@@ -1,7 +1,9 @@
 package learn.ghosted.data;
 
 import learn.ghosted.data.mappers.ResourceMapper;
+import learn.ghosted.data.mappers.ResourceUserMapper;
 import learn.ghosted.models.Resource;
+import learn.ghosted.models.ResourceUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -37,6 +39,15 @@ public class ResourceJdbcTemplateRepository implements ResourceRepository {
                 .orElse(null);
 
         return resource;
+    }
+
+    @Override
+    public List<ResourceUser> findAllWithUser() {
+        final String sql = "select r.resource_id, r.resource_title, r.resource_link, r.resource_type, u.user_id, u.first_name, u.last_name "
+                + "from resource r "
+                + "inner join user u "
+                + "on r.user_id = u.user_id;";
+        return jdbcTemplate.query(sql, new ResourceUserMapper());
     }
 
     @Override
