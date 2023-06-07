@@ -12,6 +12,8 @@ import Dashboard from './components/Dashboard';
 import NotFound404 from './components/NotFound404';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
+import Error from './components/Error.tsx';
+
 
 function App() {
   const [user, setUser] = useState(null);
