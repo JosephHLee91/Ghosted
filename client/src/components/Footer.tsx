@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className='bg-slate-50'>
       <div className='flex justify-between items-center px-4 py-4'>
-        <div className='flex justify-center h-5 transition-opacity hover:opacity-0'>
+        <div className='flex justify-start h-5 transition-opacity hover:opacity-0'>
           <img src='/images/logo.png' alt='Ghosted small ghost' />
         </div>
 
