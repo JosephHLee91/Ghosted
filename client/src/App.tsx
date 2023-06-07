@@ -9,6 +9,7 @@ import ResourcesForm from './components/ResourcesForm.tsx';
 import TestimonialForm from './components/TestimonialForm';
 import JobForm from './components/JobForm.tsx';
 import Dashboard from './components/Dashboard';
+import NotFound404 from './components/NotFound404';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
 
@@ -51,6 +52,7 @@ function App() {
             <Route path='/jobs' element={<JobForm />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/resources/add' element={<ResourcesForm />} />
+            <Route path='*' element={<NotFound404 />} />
           </Routes>
         </Router>
       </div>
