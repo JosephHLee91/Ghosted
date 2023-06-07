@@ -47,7 +47,7 @@ const Login = () => {
         }, 1000);
       })
       .catch((err) => {
-        setErrors(err);
+        setErrors(['Username or password is incorrect']);
         setSuccessErrorHeader('Error');
         setPopupStyle({
           background: 'bg-red-100',
