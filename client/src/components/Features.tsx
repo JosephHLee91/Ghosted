@@ -21,7 +21,9 @@ const Features = () => {
           </div>
           <div className='w-3/6 flex'>
             <div className='w-1/3 flex items-center shrink-0 grow justify-center lg:grow-0'>
-              VIDEO PLACEHOLDER
+              <video autoPlay muted loop id='video'>
+                <source src={'/videos/chart_feature.mp4'} type='video/mp4'/>
+              </video>
             </div>
           </div>
         </div>
@@ -29,7 +31,9 @@ const Features = () => {
         <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
           <div className='w-3/6 flex'>
             <div className='w-1/3 flex items-center shrink-0 grow justify-center lg:grow-0'>
-              VIDEO PLACEHOLDER
+              <video autoPlay muted loop id='video'>
+                <source src={'/videos/table_feature.mp4'} type='video/mp4'/>
+              </video>
             </div>
           </div>
           <div className='w-3/6'>
@@ -44,6 +48,26 @@ const Features = () => {
               empowering you to stay organized and informed throughout your
               search.
             </p>
+          </div>
+        </div>
+
+        <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
+          <div className='w-3/6'>
+            <p className='text-left text-gray-700 text-2xl font-bold tracking-tight'>
+              Community Inspired
+            </p>
+            <p className='text-left text-gray-500 mt-4'>
+              You're not alone, access our community driven resources page to view
+              articles and videos to better aid your job search. With hundreds of other
+              users
+            </p>
+          </div>
+          <div className='w-3/6 flex'>
+            <div className='w-1/3 flex items-center shrink-0 grow justify-center lg:grow-0'>
+              <video autoPlay muted loop id='video'>
+                <source src={'/videos/resources_feature.mp4'} type='video/mp4'/>
+              </video>
+            </div>
           </div>
         </div>
       </div>
