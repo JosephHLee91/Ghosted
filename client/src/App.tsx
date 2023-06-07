@@ -54,11 +54,7 @@ function App() {
             <Route path='/jobs' element={<JobForm />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/resources/add' element={<ResourcesForm />} />
-<<<<<<< HEAD
-            <Route path='/*' element={<Error />} />
-=======
             <Route path='*' element={<NotFound404 />} />
->>>>>>> origin/main
           </Routes>
         </Router>
       </div>
