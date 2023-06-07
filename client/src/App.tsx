@@ -5,12 +5,12 @@ import Signup from './components/Signup.tsx';
 import Navbar from './components/Navbar.tsx';
 import Home from './components/Home.tsx';
 import Resources from './components/Resources.tsx';
+import ResourcesForm from './components/ResourcesForm.tsx';
 import TestimonialForm from './components/TestimonialForm';
-import ResourcesForm from './components/ResourcesForm.tsx'
+import JobForm from './components/JobForm.tsx';
+import Dashboard from './components/Dashboard';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
-import JobForm from './components/JobForm.tsx';
-import Dashboard from './components/Dashboard.tsx';
 
 function App() {
   const [user, setUser] = useState(null);

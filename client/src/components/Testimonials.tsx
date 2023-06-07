@@ -37,8 +37,11 @@ const Testimonials = () => {
         </h2>
 
         <div className='mt-6 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8'>
-          {testimonials.map((review) => (
-            <blockquote className='bg-slate-50 rounded-md drop-shadow-md border-2 border-l-4 border-indigo-500 p-6'>
+          {testimonials.map((review, i) => (
+            <blockquote
+              key={i}
+              className='bg-slate-50 rounded-md drop-shadow-md border-2 border-l-4 border-indigo-500 p-6'
+            >
               <div className='flex items-center gap-4'>
                 <div>
                   <div className='flex justify-start font-bold text-indigo-500 gap-0.5'>

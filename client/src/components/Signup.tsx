@@ -33,36 +33,50 @@ const Signup = () => {
 
   const formSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    createAccount(user)
-      .then((userLogin) => {
-        setErrors(['Account successfully created!']);
-        setSuccessErrorHeader('Success');
-        setPopupStyle({
-          background: 'bg-green-100',
-          header: 'text-green-900',
-          body: 'text-green-800',
-        });
-        setErrorsBoolean(true);
-        fadeOutAlert();
 
-        setTimeout(() => {
-          navigate('/login', {
-            state: { message: 'Account successfully created!', user },
-          });
-        }, 1000);
-      })
-      .catch((err) => {
-        setErrors(err);
-        setSuccessErrorHeader('Error');
-        setPopupStyle({
-          background: 'bg-red-100',
-          header: 'text-red-900',
-          body: 'text-red-800',
-        });
-
-        fadeOutAlert();
-        setErrorsBoolean(true);
+    if (user.password !== user.passwordConfirm) {
+      setErrors(['Passwords must match']);
+      setSuccessErrorHeader('Error');
+      setPopupStyle({
+        background: 'bg-red-100',
+        header: 'text-red-900',
+        body: 'text-red-800',
       });
+
+      fadeOutAlert();
+      setErrorsBoolean(true);
+    } else {
+      createAccount(user)
+        .then((userLogin) => {
+          setErrors(['Account successfully created!']);
+          setSuccessErrorHeader('Success');
+          setPopupStyle({
+            background: 'bg-green-100',
+            header: 'text-green-900',
+            body: 'text-green-800',
+          });
+          setErrorsBoolean(true);
+          fadeOutAlert();
+
+          setTimeout(() => {
+            navigate('/login', {
+              state: { message: 'Account successfully created!', user },
+            });
+          }, 1000);
+        })
+        .catch((err) => {
+          setErrors(err);
+          setSuccessErrorHeader('Error');
+          setPopupStyle({
+            background: 'bg-red-100',
+            header: 'text-red-900',
+            body: 'text-red-800',
+          });
+
+          fadeOutAlert();
+          setErrorsBoolean(true);
+        });
+    }
   };
 
   const fadeOutAlert = () => {
@@ -118,6 +132,7 @@ const Signup = () => {
               name='firstName'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
+              required
             />
           </div>
           <div className='w-full md:w-1/2 px-3'>
@@ -133,6 +148,7 @@ const Signup = () => {
               name='lastName'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
+              required
             />
           </div>
         </div>
@@ -150,6 +166,7 @@ const Signup = () => {
               name='email'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
+              required
             />
           </div>
         </div>
@@ -167,6 +184,7 @@ const Signup = () => {
               name='password'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
+              required
             />
           </div>
           <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
@@ -182,6 +200,7 @@ const Signup = () => {
               name='passwordConfirm'
               onChange={formChange}
               className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-100 focus:border-indigo-400'
+              required
             />
           </div>
         </div>

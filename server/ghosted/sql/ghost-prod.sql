@@ -82,15 +82,21 @@ insert into `user` (first_name, last_name, email, password_hash, enabled)
     ('Brandon', 'Ricardo', 'brandon@ricardo.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
     ('Leo', 'Brown', 'leobrown@hotmail.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1),
     ('Jimmy', 'Mao', 'jimmy@mao.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 1);
-    
+
 insert into user_role
     values
     (1, 2),
     (2, 1);
     
 insert into job_applied(job_id, job_title, job_company, job_date_applied, job_link, job_status, job_location, user_id) values
-        (1, 'Junior Developer', 'Dev10', '2020-01-01', 'https://www.dev-10.com', 'pending', null, 1),
-        (2, 'Instructor', 'Dev10', '2022-01-01', 'https://www.dev-10.com', 'pending', null, 2);
+        (1, 'Junior Developer', 'Dev10', '2020-01-01', 'https://www.dev-10.com', 'APPLIED', null, 2),
+        (2, 'Instructor', 'Dev10', '2022-01-01', 'https://www.dev-10.com', 'APPLIED', null, 2),
+        (3, 'Junior Developer', 'Dev10', '2020-01-01', 'https://www.dev-10.com', 'ACCEPTED',  'On-site',  1),
+		(4, 'Instructor', 'Dev10', '2022-01-01', 'https://www.dev-10.com', 'APPLIED', 'On-site', 1),
+		(5, 'Software Engineer', 'Google', '2022-01-01','https://www.google.com', 'REJECTED', 'Remote', 1),
+		(6, 'Software Engineer', 'Amazon', '2022-01-01', 'https://www.amazon.com', 'ACCEPTED', 'Hybrid', 1),
+		(7, 'Software Engineer', 'Netflix', '2022-01-01', 'https://www.netflix.com', 'REJECTED', 'On-site', 1),
+		(8, 'Software Developer', 'Twitch', '2022-01-01', 'https://www.twitch.com', 'APPLIED', 'On-site', 1);
         
 insert into `resource` (resource_id, resource_title, resource_link, resource_type, user_id)
 	values
