@@ -127,7 +127,9 @@ const Dashboard = () => {
                   </div>
                 </td>
                 <td className='px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5'>
-                  {job.link}
+                  <a href={job.link} target='_blank'>
+                    {job.link}
+                  </a>
                 </td>
                 <td className='px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5'>
                   {job.location}
