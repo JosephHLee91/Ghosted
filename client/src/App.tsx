@@ -11,6 +11,7 @@ import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
 import JobForm from './components/JobForm.tsx';
 import Dashboard from './components/Dashboard.tsx';
+import Error from './components/Error.tsx';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,6 +52,7 @@ function App() {
             <Route path='/jobs' element={<JobForm />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/resources/add' element={<ResourcesForm />} />
+            <Route path='/*' element={<Error />} />
           </Routes>
         </Router>
       </div>
