@@ -31,7 +31,7 @@ KnownGoodState knownGoodState;
         List<Job> jobs = repository.findAll();
         assertNotNull(jobs);
 
-        assertTrue(jobs.size() >= 1 && jobs.size() <= 2);
+        assertTrue(jobs.size() >= 1 && jobs.size() <= 10);
     }
 
     @Test

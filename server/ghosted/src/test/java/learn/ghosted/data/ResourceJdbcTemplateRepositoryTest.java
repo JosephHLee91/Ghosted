@@ -38,7 +38,7 @@ public class ResourceJdbcTemplateRepositoryTest {
         Resource actual = repository.findById(1);
         assertEquals(1, actual.getResourceId());
 
-        actual = repository.findById(4);
+        actual = repository.findById(999);
         assertEquals(null, actual);
     }
 
@@ -53,7 +53,7 @@ public class ResourceJdbcTemplateRepositoryTest {
     @Test
     void shouldUpdate() {
         Resource resource = makeResource();
-        resource.setResourceId(2);
+        resource.setResourceId(3);
         assertTrue(repository.update(resource));
 
         resource.setResourceId(7);
