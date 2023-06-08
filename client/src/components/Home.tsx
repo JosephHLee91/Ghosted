@@ -7,7 +7,6 @@ import Footer from './Footer';
 import { useContext, useEffect } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import Charts from './Charts';
 
 const Home = () => {
   const navigate = useNavigate();
