@@ -72,4 +72,8 @@ Learning goals...
 
 ## Deliverables
 
-- [Task Board]
+- [Task Board](https://github.com/users/AndrewJordanRobles/projects/1/views/1)
+- [Schema Diagrams](https://github.com/AndrewJordanRobles/ghosted/blob/main/planning/db-diagram.png)
+- [Wireframes](https://github.com/AndrewJordanRobles/ghosted/tree/main/planning/wireframes)
+- [Presentation PPT](https://docs.google.com/presentation/d/13JQD5E_lrJYwItr75GYyz7Mkq0K-AO-GH9XyX41_WkU/edit#slide=id.p)
+- [Schema Scripts](https://github.com/AndrewJordanRobles/ghosted/tree/main/server/ghosted/sql)
