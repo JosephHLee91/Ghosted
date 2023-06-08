@@ -1,12 +1,12 @@
-import Welcome from './Welcome';
-import Features from './Features';
-import Testimonials from './Testimonials';
-import HomeResources from './HomeResources';
-import GetStarted from './GetStarted';
-import Footer from './Footer';
 import { useContext, useEffect } from 'react';
-import AuthContext from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../contexts/AuthContext';
+import Features from './Features';
+import Footer from './Footer';
+import GetStarted from './GetStarted';
+import HomeResources from './HomeResources';
+import Testimonials from './Testimonials';
+import Welcome from './Welcome';
 
 const Home = () => {
   const navigate = useNavigate();

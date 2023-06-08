@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
-import Chart from './Chart';
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../contexts/AuthContext';
+import Chart from './Chart';
 
 const reduceData = (jobs: any, fieldName: string) => {
   let output = [];

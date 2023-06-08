@@ -1,7 +1,7 @@
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { createAccount } from '../services/auth';
 import AuthContext from '../contexts/AuthContext';
+import { createAccount } from '../services/auth';
 const Signup = () => {
   const [user, setUser] = useState({
     firstName: '',

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { chart } from '../interfaces/interfaces';
-import { ArcElement, Chart as ChartJS, Title, Legend, Tooltip } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from 'chart.js';
 import pattern from 'patternomaly';
+import { useEffect, useState } from 'react';
+import { Pie } from 'react-chartjs-2';
+import { chart } from '../interfaces/interfaces';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 

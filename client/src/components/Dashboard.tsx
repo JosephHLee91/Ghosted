@@ -1,6 +1,5 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Charts from './Charts';
 
 import AuthContext from '../contexts/AuthContext';
@@ -10,8 +9,6 @@ const Dashboard = () => {
   const [jobs, setJobs] = useState<job[]>([]);
   const currUser = useContext(AuthContext);
   const navigate = useNavigate();
-  const { appUserId } = useParams();
-  const [jobId, setJobId] = useState<number>(0);
 
   const getJobs = async () => {
     const init = {

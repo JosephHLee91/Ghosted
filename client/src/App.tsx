@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Login from './components/Login.tsx';
-import Signup from './components/Signup.tsx';
-import Navbar from './components/Navbar.tsx';
+import Dashboard from './components/Dashboard';
 import Home from './components/Home.tsx';
+import JobForm from './components/JobForm.tsx';
+import Login from './components/Login.tsx';
+import Navbar from './components/Navbar.tsx';
+import NotFound404 from './components/NotFound404';
 import Resources from './components/Resources.tsx';
 import ResourcesForm from './components/ResourcesForm.tsx';
+import Signup from './components/Signup.tsx';
 import TestimonialForm from './components/TestimonialForm';
-import JobForm from './components/JobForm.tsx';
-import Dashboard from './components/Dashboard';
-import NotFound404 from './components/NotFound404';
 import AuthContext from './contexts/AuthContext.ts';
 import { refreshToken } from './services/auth.ts';
-import Error from './components/Error.tsx';
-
 
 function App() {
   const [user, setUser] = useState(null);
