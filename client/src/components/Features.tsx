@@ -7,28 +7,6 @@ const Features = () => {
         </h2>
 
         <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
-          <div className='w-3/6'>
-            <p className='text-left text-gray-700 text-2xl font-bold tracking-tight'>
-              Data driven
-            </p>
-            <p className='text-left text-gray-500 mt-4'>
-              Track more than <span className='italic'>just</span> quantity of
-              applications.{' '}
-              <span className='text-indigo-500 font-bold'>Ghosted</span> serves
-              job application data in easy to understand, powerful data charts
-              to put you in control of your job search.
-            </p>
-          </div>
-          <div className='w-3/6 flex'>
-            <div className='w-5/6 m-auto flex items-center shrink-0 grow justify-center lg:grow-0'>
-              <video autoPlay muted loop id='video'>
-                <source src={'/videos/chart_feature.mp4'} type='video/mp4' />
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
           <div className='w-3/6 flex'>
             <div className='w-5/6 m-auto flex items-center shrink-0 grow justify-center lg:grow-0'>
               <video autoPlay muted loop id='video'>
@@ -54,14 +32,26 @@ const Features = () => {
         <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
           <div className='w-3/6'>
             <p className='text-left text-gray-700 text-2xl font-bold tracking-tight'>
-              Community Inspired
+              Data driven
             </p>
             <p className='text-left text-gray-500 mt-4'>
-              You're not alone. Access our community driven resources page to
-              view articles and videos to best prepare yourself for your job
-              search.
+              Track more than <span className='italic'>just</span> quantity of
+              applications.{' '}
+              <span className='text-indigo-500 font-bold'>Ghosted</span> serves
+              job application data in easy to understand, powerful data charts
+              to put you in control of your job search.
             </p>
           </div>
+          <div className='w-3/6 flex'>
+            <div className='w-5/6 m-auto flex items-center shrink-0 grow justify-center lg:grow-0'>
+              <video autoPlay muted loop id='video'>
+                <source src={'/videos/chart_feature.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div className='mx-auto max-w-screen-xl px-4 py-16 flex flex-row'>
           <div className='w-3/6 flex'>
             <div className='w-5/6 m-auto flex items-center shrink-0 grow justify-center lg:grow-0'>
               <video
@@ -78,6 +68,16 @@ const Features = () => {
                 />
               </video>
             </div>
+          </div>
+          <div className='w-3/6'>
+            <p className='text-left text-gray-700 text-2xl font-bold tracking-tight'>
+              Community Inspired
+            </p>
+            <p className='text-left text-gray-500 mt-4'>
+              You're not alone. Access our community driven resources page to
+              view articles and videos to best prepare yourself for your job
+              search.
+            </p>
           </div>
         </div>
       </div>

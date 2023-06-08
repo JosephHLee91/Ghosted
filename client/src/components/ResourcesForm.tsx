@@ -114,7 +114,7 @@ const Resources = () => {
   };
 
   useEffect(() => {
-    document.title = 'Ghosted - Add Resource';
+    document.title = 'Ghosted - Add Resources';
     if (!currUser.user) {
       navigate('/login');
     }
