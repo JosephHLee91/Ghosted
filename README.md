@@ -69,3 +69,7 @@ Learning goals...
 
   - Comments on job posting
   - Hosting
+
+## Deliverables
+
+- [Task Board]
