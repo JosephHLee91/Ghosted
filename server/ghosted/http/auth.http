@@ -13,6 +13,10 @@ Content-Type: application/json
 
 }
 
+# https://www.google.com/?client=safari
+# https://www.youtube.com
+# https://www.newyorker.com/culture/on-television/hbos-burden-of-proof-and-the-problem-of-the-passive-mother
+
 
 ###
 # Paste token from above after bearer

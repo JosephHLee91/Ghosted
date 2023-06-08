@@ -81,7 +81,7 @@ const Charts = () => {
           ></div>
         </div>
       ) : (
-        <div className='flex flex-col w-full'>
+        <div className='flex flex-col w-full my-4'>
           <div className='flex flex-col m-auto'>
             <span className='block tracking-wide text-gray-700 text-xs font-bold mb-1 m-auto'>
               {swapChartDisplay.buttonName}

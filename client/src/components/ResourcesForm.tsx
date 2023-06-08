@@ -40,7 +40,7 @@ const Resources = () => {
   const formSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     addResourceToServer();
-  }
+  };
 
   const addResourceToServer = async () => {
     const init = {
@@ -66,17 +66,17 @@ const Resources = () => {
         fadeOutAlert();
 
         setTimeout(() => {
-            navigate('/resources');
-          }, 2000);
+          navigate('/resources');
+        }, 2000);
       } else {
         const data = await res.json();
 
         errorHandler(data);
       }
     } catch (err: any) {
-        errorHandler(['Something went wrong on our end. Try again later!']);
-      }
-  }
+      errorHandler(['Something went wrong on our end. Try again later!']);
+    }
+  };
 
   const fadeOutAlert = () => {
     setAlertStyle({
@@ -114,10 +114,10 @@ const Resources = () => {
   };
 
   useEffect(() => {
-    document.title = 'Ghosted - Resources';
+    document.title = 'Ghosted - Add Resources';
     if (!currUser.user) {
-        navigate('/login');
-      }
+      navigate('/login');
+    }
   }, []);
 
   return (
@@ -148,7 +148,7 @@ const Resources = () => {
             required
           />
         </div>
-				<div className='w-full px-3'>
+        <div className='w-full px-3'>
           <label
             className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
             htmlFor='resourceLink'
@@ -166,7 +166,7 @@ const Resources = () => {
             required
           />
         </div>
-				<div className='w-full px-3  mt-3'>
+        <div className='w-full px-3  mt-3'>
           <label
             className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
             htmlFor='resourceType'
@@ -184,7 +184,7 @@ const Resources = () => {
             <option value='MEDIA'>Media</option>
           </select>
         </div>
-			<div className='w-full text-center'>
+        <div className='w-full text-center'>
           <button
             type='submit'
             className='bg-indigo-500 transition hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded'
