@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../contexts/AuthContext';
 import { add } from '../services/jobs.ts';
 
@@ -54,9 +54,9 @@ const JobForm = () => {
 
   useEffect(() => {
     document.title = 'Ghosted - Add Job';
-    // if (!currUser.user) {
-    //   navigate("/login");
-    // }
+    if (!currUser.user) {
+      navigate('/login');
+    }
   }, []);
 
   return (

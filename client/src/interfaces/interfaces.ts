@@ -8,7 +8,6 @@ export interface job {
   status: string;
 }
 
-
 export interface testimonial {
   first_name: string;
   last_name: string;
@@ -34,5 +33,3 @@ export interface chart {
   dataField: string;
   title: string;
 }
-
-

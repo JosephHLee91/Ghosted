@@ -1,7 +1,7 @@
-import { useEffect, SyntheticEvent, useContext, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { resource } from '../interfaces/interfaces';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import AuthContext from '../contexts/AuthContext';
+import { resource } from '../interfaces/interfaces';
 
 const Resources = () => {
   const [resources, setResources] = useState<resource[]>([]);
