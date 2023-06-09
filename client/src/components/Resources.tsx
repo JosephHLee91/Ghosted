@@ -25,7 +25,7 @@ const Resources = () => {
         setResources(data);
       }
     } catch (err: any) {
-      console.log(err);
+      console.error(err);
     }
   };
 

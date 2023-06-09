@@ -35,8 +35,6 @@ const JobForm = () => {
 
   const formSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(job);
-    e.preventDefault();
     add(job)
       .then(() => navigate('/dashboard'))
       .catch((errors: any) => {

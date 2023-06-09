@@ -65,7 +65,6 @@ const TestimonialForm = () => {
         setTimeout(() => {
           navigate('/dashboard');
         }, 2000);
-        console.log('asdkjasbdakjsb');
       } else {
         const data = await res.json();
 
