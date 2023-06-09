@@ -64,7 +64,6 @@ const Dashboard = () => {
   };
 
   const statusColorning = (status: string) => {
-    console.log(status);
     if (status === 'APPLIED') {
       return 'bg-yellow-300';
     } else if (status === 'REJECTED') {
@@ -80,6 +79,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     document.title = 'Ghosted - Dashboard';
+    if (!currUser.user) {
+      navigate('/login');
+    }
     getJobs();
   }, []);
 
